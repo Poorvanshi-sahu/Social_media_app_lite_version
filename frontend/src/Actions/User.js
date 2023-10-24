@@ -34,7 +34,7 @@ export const loadUser = () => async (dispatch) => {
       type: "LoadUserRequest",
     });
 
-    const { data } = await axios.get("/api/v1/me");
+    const { data } = await axios.get("/api/v1/myProfile");
 
     dispatch({
       type: "LoadUserSuccess",
@@ -95,9 +95,10 @@ export const getAllUsers =
       });
 
       const { data } = await axios.get(`/api/v1/users?name=${name}`);
+
       dispatch({
         type: "allUsersSuccess",
-        payload: data.users,
+        payload: data.user,
       });
     } catch (error) {
       dispatch({
